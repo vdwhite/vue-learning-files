@@ -32,26 +32,7 @@
         data(){
             return {
                 newUser:{},
-                users:[
-                    {
-                        firstName: "John",
-                        lastName: "Doe",
-                        email:"example@mail.com",
-                        contacted:false
-                    },
-                    {
-                        firstName: "Ben",
-                        lastName: "Frank",
-                        email:"bexample@mail.com",
-                        contacted:false
-                    },
-                    {
-                        firstName: "Casde",
-                        lastName: "Fack",
-                        email:"csle@mail.com",
-                        contacted:false
-                    }
-                ]
+                users:[]
             }
         },
         methods:{
@@ -70,11 +51,13 @@
             deleteUser: function(user){
                 this.users.splice(this.users.indexOf(user),1);
             }
-            
-            
         },
-        computed:{
-
+        created: function(){
+            //get data from jsonplaceholder
+            this.$http.get("https://jsonplaceholder.typicode.com/users")
+            .then(function(response){
+                this.users= response.data;; 
+            });
         }
     }
 </script>
