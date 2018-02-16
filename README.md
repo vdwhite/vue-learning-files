@@ -1,6 +1,6 @@
 # vue-tutorial
 
-> A vue learning project
+> A vue learning project on Cloud 9
 
 ## Build Setup
 
